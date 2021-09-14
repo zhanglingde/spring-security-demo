@@ -1,6 +1,7 @@
 .idea
 chapter02/firstdemo/.mvn
 
-chapter02/*/*.iml
-chapter02/*/.idea
-chapter02/*/.mvn
+*/*/*.iml
+*/.idea
+*/*/.mvn
+*/*/target
