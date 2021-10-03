@@ -46,8 +46,10 @@ public class CustomSecurityMetadataSource implements FilterInvocationSecurityMet
         return null;
     }
 
+    // 是否支持数据库权限配置，返回 true 支持
     @Override
     public boolean supports(Class<?> clazz) {
+        // 数据库中未定义的接口都没有权限访问
         return FilterInvocation.class.isAssignableFrom(clazz);
 //        return true;
     }
