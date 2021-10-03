@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ling.mapper.MenuMapper">
+
+    <resultMap id="MenuResultMap" type="com.ling.entry.Menu">
+        <id column="menu_id" property="menuId" />
+        <result column="url" property="url"/>
+        <collection property="roles" ofType="com.ling.entry.Role">
+            <id column="role_id" property="roleId"/>
+            <result column="name" property="name"/>
+            <result column="name_zh" property="nameZh"/>
+        </collection>
+    </resultMap>
+
+    <select id="selectAllMenu" resultMap="MenuResultMap">
+        select m.menu_id,
+               m.url,
+               r.name,
+               r.name_zh,
+               r.role_id
+        from menu m
+        left join menu_role mr on mr.menu_id = m.menu_id
+        left join role r on r.role_id = mr.role_id
+    </select>
+</mapper>

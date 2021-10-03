@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ling.mapper.UserMapper">
+
+
+    <select id="loadUserByUsername" resultType="com.ling.entry.User">
+        select * from user where username = #{username}
+    </select>
+
+    <select id="selectUserRoleByUserId" resultType="com.ling.entry.Role">
+        select r.name,r.name_zh
+        from user_role ur
+        left join role r on r.role_id = ur.role_id
+        where ur.user_id = #{userId}
+    </select>
+</mapper>
