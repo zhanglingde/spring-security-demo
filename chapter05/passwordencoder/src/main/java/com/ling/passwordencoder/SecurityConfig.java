@@ -21,7 +21,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     UserService userService;
 
-    @Bean
+//    @Bean
     PasswordEncoder passwordEncoder() {
         String encodingId = "bcrypt";
         // encoder
