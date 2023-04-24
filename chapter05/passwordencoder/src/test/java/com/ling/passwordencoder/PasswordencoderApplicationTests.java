@@ -12,8 +12,7 @@ class PasswordencoderApplicationTests {
     void contextLoads() {
         // admin $2a$10$hrMJFk5Udfs.djnhtuijE.WbbxXdUzZuIp18vLx5ZJbxurx0zbhFG
         // 正确密码
-        // $2a$10$2A6h9O5XyylzE5UJs4k1seqtegMIo9IRA5huFrrWY1c0fzdgwyaDS
-        // $2a$10$pX3d4fuSVHtIuJt.MmY0heVOoC0aConXgH1uQAddS2BpzzlvCTHjy
+        // $2a$10$uzGf3r2WXGixW4660ssjR.4XRz18Y5e4Btqev0kj8bP5saJ2q5kE2   / faw123456
         // $2a$10$YmyYPPVp5l7QgyHAme9j7OXhmgUPUVHF/CQO8aSIxGf8dbqgSPISy / faw123456
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         String password = encoder.encode("faw1234");

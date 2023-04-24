@@ -31,8 +31,10 @@ public class CustomSecurityMetadataSource implements FilterInvocationSecurityMet
     public Collection<ConfigAttribute> getAttributes(Object object) throws IllegalArgumentException {
         String requestURI = ((FilterInvocation) object).getRequest().getRequestURI();
         List<Menu> menus = menuService.selectAllMenu();
+        // 所有 url 与访问 url进行匹配，查看是否存在该 url
         for (Menu menu : menus) {
             if (antPathMatcher.match(menu.getUrl(), requestURI)) {
+                // 返回访问该 url 所需要的角色
                 String[] roles = menu.getRoles().stream()
                         .map(r -> r.getName()).toArray(String[]::new);
                 return SecurityConfig.createList(roles);

@@ -18,8 +18,11 @@ import java.util.Collection;
 public class CustomUrlAccessDecisionManager implements AccessDecisionManager {
     @Override
     public void decide(Authentication authentication, Object object, Collection<ConfigAttribute> collection) throws AccessDeniedException, InsufficientAuthenticationException {
+        // collection 方法资源所需要的角色
         for (ConfigAttribute attribute : collection) {
+            // 登录用户的角色
             Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
+            // 进行比较查看是否匹配
             for (GrantedAuthority authority : authorities) {
                 if (authority.getAuthority().equals(attribute.getAttribute())) {
                     return;
